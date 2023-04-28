@@ -142,6 +142,7 @@ class CalendarCarousel<T extends EventInterface> extends StatefulWidget {
   final bool showIconBehindDayText;
   final ScrollPhysics pageScrollPhysics;
   final bool shouldShowTransform;
+  final String headerTitleDateFormat;
 
   CalendarCarousel({
     Key? key,
@@ -224,6 +225,7 @@ class CalendarCarousel<T extends EventInterface> extends StatefulWidget {
     this.showIconBehindDayText = false,
     this.pageScrollPhysics = const ScrollPhysics(),
     this.shouldShowTransform = true,
+    this.headerTitleDateFormat = 'yMMM',
   }) : super(key: key);
 
   @override
@@ -283,7 +285,7 @@ class _CalendarState<T extends EventInterface>
       /// width percentage
     );
 
-    _localeDate = DateFormat.yMMM(widget.locale);
+    _localeDate = DateFormat(widget.headerTitleDateFormat, widget.locale);
     firstDayOfWeek = widget.firstDayOfWeek ??
         (_localeDate.dateSymbols.FIRSTDAYOFWEEK + 1) % 7;
 
