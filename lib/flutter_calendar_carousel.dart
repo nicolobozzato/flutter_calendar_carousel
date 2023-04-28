@@ -76,6 +76,7 @@ class CalendarCarousel<T extends EventInterface> extends StatefulWidget {
   final Function(DateTime, List<T>)? onDayPressed;
   final TextStyle? weekdayTextStyle;
   final Color iconColor;
+  final Color headerBackgroundColor;
   final TextStyle? headerTextStyle;
   final String? headerText;
   final TextStyle? weekendTextStyle;
@@ -168,6 +169,7 @@ class CalendarCarousel<T extends EventInterface> extends StatefulWidget {
     this.onDayPressed,
     this.weekdayTextStyle = const TextStyle(),
     this.iconColor = Colors.blueAccent,
+    this.headerBackgroundColor = Colors.white,
     this.headerTextStyle,
     this.headerText,
     this.weekendTextStyle,
@@ -344,6 +346,7 @@ class _CalendarState<T extends EventInterface>
                     : '${_localeDate.format(this._dates[this._pageNum])}',
             headerTextStyle: widget.headerTextStyle,
             showHeaderButtons: widget.showHeaderButton,
+            headerBackgroundColor: widget.headerBackgroundColor,
             headerIconColor: widget.iconColor,
             leftButtonIcon: widget.leftButtonIcon,
             rightButtonIcon: widget.rightButtonIcon,
